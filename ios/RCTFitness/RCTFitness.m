@@ -180,8 +180,10 @@ RCT_REMAP_METHOD(getSteps,
                                                      fromDate:[NSDate date]];
     anchorComponents.hour = 0;
     NSDate *anchorDate = [calendar dateFromComponents:anchorComponents];
+    
+    NSPredicate *sourcePredicate = [NSPredicate predicateWithFormat:@"metadata.%K != YES", HKMetadataKeyWasUserEntered];
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:type
-                                                                           quantitySamplePredicate:nil
+                                                                           quantitySamplePredicate:sourcePredicate
                                                                                            options:HKStatisticsOptionCumulativeSum
                                                                                         anchorDate:anchorDate
                                                                                 intervalComponents:interval];
@@ -254,8 +256,10 @@ RCT_REMAP_METHOD(getDistances,
                                                      fromDate:[NSDate date]];
     anchorComponents.hour = 0;
     NSDate *anchorDate = [calendar dateFromComponents:anchorComponents];
+    
+    NSPredicate *sourcePredicate = [NSPredicate predicateWithFormat:@"metadata.%K != YES", HKMetadataKeyWasUserEntered];
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:type
-                                                                           quantitySamplePredicate:nil
+                                                                           quantitySamplePredicate:sourcePredicate
                                                                                            options:HKStatisticsOptionCumulativeSum
                                                                                         anchorDate:anchorDate
                                                                                 intervalComponents:interval];
@@ -325,8 +329,10 @@ RCT_REMAP_METHOD(getCalories,
                                                      fromDate:[NSDate date]];
     anchorComponents.hour = 0;
     NSDate *anchorDate = [calendar dateFromComponents:anchorComponents];
+    
+    NSPredicate *sourcePredicate = [NSPredicate predicateWithFormat:@"metadata.%K != YES", HKMetadataKeyWasUserEntered];
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:type
-                                                                           quantitySamplePredicate:nil
+                                                                           quantitySamplePredicate:sourcePredicate
                                                                                            options:HKStatisticsOptionCumulativeSum
                                                                                         anchorDate:anchorDate
                                                                                 intervalComponents:interval];
@@ -394,8 +400,10 @@ RCT_REMAP_METHOD(getHeartRate,
                                                      fromDate:[NSDate date]];
     anchorComponents.hour = 0;
     NSDate *anchorDate = [calendar dateFromComponents:anchorComponents];
+    
+    NSPredicate *sourcePredicate = [NSPredicate predicateWithFormat:@"metadata.%K != YES", HKMetadataKeyWasUserEntered];
     HKStatisticsCollectionQuery *query = [[HKStatisticsCollectionQuery alloc] initWithQuantityType:type
-                                                                           quantitySamplePredicate:nil
+                                                                           quantitySamplePredicate:sourcePredicate
                                                                                            options:HKStatisticsOptionDiscreteAverage
                                                                                         anchorDate:anchorDate
                                                                                 intervalComponents:interval];
